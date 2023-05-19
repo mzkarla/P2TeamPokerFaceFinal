@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dog : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float UpForce = 200f;
     private Rigidbody2D rb2d;
@@ -16,7 +16,7 @@ public class Dog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             rb2d.AddForce(new Vector2(0, UpForce));
         }
