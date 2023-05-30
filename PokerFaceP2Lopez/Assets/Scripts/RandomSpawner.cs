@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using
-
-public class RandomSpawner : MonoBehaviour
+using 
+    public class RandomSpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public GameObject[] enemyPrefabs;
