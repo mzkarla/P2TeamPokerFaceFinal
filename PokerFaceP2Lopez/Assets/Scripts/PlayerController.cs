@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public float UpForce = 200f;
     public float moveSpeed;
-    public float jumpForce;
+    public float jumpSpeed = 8f;
     public float checkRadius; 
     private float moveDirection;
     //to move and jump
@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         ProcessInputs();
         //referencing to jump
+        
     }
     
     void FixedUpdate()
@@ -100,17 +101,18 @@ public class PlayerController : MonoBehaviour
         rb2d.velocity = new Vector2(moveDirection * moveSpeed, rb2d.velocity.y);
         if (isJumping)
         {
-            rb2d.AddForce(new Vector2(0, jumpForce));
+  
             jumpCount--; 
         }
         isJumping = false; 
     }
     private void ProcessInputs()
     {
-        if (Input.GetButtonDown("Jump") && jumpCount > 0)
+        if (Input.GetButtonDown("Jump"))
         {
             jumpSoundEffect.Play(); 
             isJumping = true;
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpSpeed);
         }   
     }
     //include health, change health component,  and playsound
